@@ -11,7 +11,7 @@ rang = range(255, 0, -1)
 GPIO.setup(dac, GPIO.OUT)
 GPIO.setup(leds, GPIO.OUT)
 GPIO.setup(tro, GPIO.OUT, initial = GPIO.HIGH)
-GPIO.setup(comp, GPIO.IN)
+GPIO.setup(comp, GPIO.IN) 
 
 def dec2bin(val):
     return[int(elem) for elem in bin(val)[2:].zfill(8)]
@@ -33,7 +33,8 @@ try:
         ll = [1]*((adc()//32))+[0]*((8-adc()//32))
         GPIO.output(leds, ll[0:8])
         time.sleep(1)
-        print(ll)
+        ## print(ll)
+        print(vall/256*3.3)
 
 finally:
     GPIO.output(dac, 0)
